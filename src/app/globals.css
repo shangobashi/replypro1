@@ -4,77 +4,101 @@
 
 @layer base {
   :root {
-    /* Warm off-white background with subtle warmth */
-    --background: 40 20% 98%;
-    --foreground: 240 10% 10%;
+    /* Light mode - warm off-white with Royal Gold accents */
+    --background: 45 30% 97%;
+    --foreground: 30 10% 12%;
 
     /* Cards slightly elevated */
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 10%;
+    --card-foreground: 30 10% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 10%;
+    --popover-foreground: 30 10% 12%;
 
-    /* Primary - rich indigo/violet */
-    --primary: 252 56% 57%;
-    --primary-foreground: 0 0% 100%;
+    /* Primary - Royal Gold */
+    --primary: 43 74% 49%;
+    --primary-foreground: 30 10% 12%;
 
-    /* Secondary - soft warm gray */
-    --secondary: 240 5% 96%;
-    --secondary-foreground: 240 6% 25%;
+    /* Secondary - warm neutral */
+    --secondary: 40 15% 94%;
+    --secondary-foreground: 30 10% 25%;
 
-    /* Muted - for subtle backgrounds */
-    --muted: 240 5% 96%;
-    --muted-foreground: 240 4% 46%;
+    /* Muted */
+    --muted: 40 10% 94%;
+    --muted-foreground: 30 8% 46%;
 
-    /* Accent - matches primary for consistency */
-    --accent: 252 56% 57%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent - matches primary */
+    --accent: 43 74% 49%;
+    --accent-foreground: 30 10% 12%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 6% 90%;
-    --input: 240 6% 90%;
-    --ring: 252 56% 57%;
+    --border: 40 10% 88%;
+    --input: 40 10% 88%;
+    --ring: 43 74% 49%;
 
     --radius: 0.75rem;
+
+    /* Royal Gold palette for direct use */
+    --gold-50: 45 60% 97%;
+    --gold-100: 45 55% 92%;
+    --gold-200: 44 55% 82%;
+    --gold-300: 43 55% 68%;
+    --gold-400: 42 65% 55%;
+    --gold-500: 43 74% 49%;
+    --gold-600: 41 80% 42%;
+    --gold-700: 38 75% 35%;
+    --gold-800: 35 65% 28%;
+    --gold-900: 32 55% 22%;
   }
 
   .dark {
-    /* Deep charcoal - not pure black */
-    --background: 240 10% 6%;
-    --foreground: 0 0% 95%;
+    /* Dark mode - deep charcoal with Royal Gold accents */
+    --background: 30 10% 6%;
+    --foreground: 40 20% 95%;
 
     /* Elevated cards */
-    --card: 240 10% 10%;
-    --card-foreground: 0 0% 95%;
+    --card: 30 10% 10%;
+    --card-foreground: 40 20% 95%;
 
-    --popover: 240 10% 10%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 30 10% 10%;
+    --popover-foreground: 40 20% 95%;
 
-    /* Primary - slightly brighter in dark mode */
-    --primary: 252 56% 65%;
-    --primary-foreground: 240 10% 6%;
+    /* Primary - brighter gold in dark mode */
+    --primary: 43 80% 55%;
+    --primary-foreground: 30 10% 6%;
 
     /* Secondary */
-    --secondary: 240 6% 16%;
-    --secondary-foreground: 0 0% 90%;
+    --secondary: 30 8% 16%;
+    --secondary-foreground: 40 15% 90%;
 
     /* Muted */
-    --muted: 240 6% 16%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 30 8% 16%;
+    --muted-foreground: 40 10% 65%;
 
     /* Accent */
-    --accent: 252 56% 65%;
-    --accent-foreground: 240 10% 6%;
+    --accent: 43 80% 55%;
+    --accent-foreground: 30 10% 6%;
 
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 6% 20%;
-    --input: 240 6% 20%;
-    --ring: 252 56% 65%;
+    --border: 30 8% 20%;
+    --input: 30 8% 20%;
+    --ring: 43 80% 55%;
+
+    /* Royal Gold palette for dark mode */
+    --gold-50: 40 30% 15%;
+    --gold-100: 40 35% 20%;
+    --gold-200: 41 45% 30%;
+    --gold-300: 42 55% 42%;
+    --gold-400: 43 70% 52%;
+    --gold-500: 43 80% 55%;
+    --gold-600: 44 85% 62%;
+    --gold-700: 45 80% 70%;
+    --gold-800: 46 70% 78%;
+    --gold-900: 47 60% 88%;
   }
 }
 
@@ -100,16 +124,16 @@
   }
 }
 
-/* Gradient text utility */
+/* Gradient text utility - Royal Gold */
 .gradient-text {
   @apply bg-clip-text text-transparent;
   background-image: linear-gradient(
     135deg,
-    hsl(252, 56%, 57%) 0%,
-    hsl(280, 60%, 55%) 25%,
-    hsl(320, 55%, 55%) 50%,
-    hsl(280, 60%, 55%) 75%,
-    hsl(252, 56%, 57%) 100%
+    hsl(43, 80%, 55%) 0%,
+    hsl(38, 85%, 50%) 25%,
+    hsl(45, 90%, 60%) 50%,
+    hsl(38, 85%, 50%) 75%,
+    hsl(43, 80%, 55%) 100%
   );
   background-size: 200% auto;
   animation: gradient-flow 4s ease infinite;
@@ -118,11 +142,11 @@
 .dark .gradient-text {
   background-image: linear-gradient(
     135deg,
-    hsl(252, 70%, 72%) 0%,
-    hsl(280, 70%, 70%) 25%,
-    hsl(320, 65%, 70%) 50%,
-    hsl(280, 70%, 70%) 75%,
-    hsl(252, 70%, 72%) 100%
+    hsl(43, 85%, 60%) 0%,
+    hsl(38, 90%, 55%) 25%,
+    hsl(48, 95%, 65%) 50%,
+    hsl(38, 90%, 55%) 75%,
+    hsl(43, 85%, 60%) 100%
   );
 }
 
@@ -143,7 +167,7 @@
   background: linear-gradient(
     180deg,
     transparent 0%,
-    hsl(252 56% 57% / 0.02) 50%,
+    hsl(43 74% 49% / 0.02) 50%,
     transparent 100%
   );
 }
@@ -152,7 +176,7 @@
   background: linear-gradient(
     180deg,
     transparent 0%,
-    hsl(252 56% 65% / 0.03) 50%,
+    hsl(43 80% 55% / 0.03) 50%,
     transparent 100%
   );
 }
@@ -172,10 +196,10 @@
   padding: 1px;
   background: linear-gradient(
     135deg,
-    hsl(252 56% 57% / 0.5),
-    hsl(280 60% 55% / 0.3),
-    hsl(320 55% 55% / 0.5),
-    hsl(252 56% 57% / 0.3)
+    hsl(43 80% 55% / 0.5),
+    hsl(38 85% 50% / 0.3),
+    hsl(48 90% 60% / 0.5),
+    hsl(43 80% 55% / 0.3)
   );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -201,28 +225,28 @@
   }
 }
 
-/* Glow effect for highlighted elements */
+/* Glow effect for highlighted elements - Royal Gold */
 .glow {
   box-shadow:
-    0 0 20px hsl(252 56% 57% / 0.15),
-    0 0 40px hsl(252 56% 57% / 0.1),
-    0 0 60px hsl(252 56% 57% / 0.05);
+    0 0 20px hsl(43 74% 49% / 0.15),
+    0 0 40px hsl(43 74% 49% / 0.1),
+    0 0 60px hsl(43 74% 49% / 0.05);
 }
 
 .dark .glow {
   box-shadow:
-    0 0 20px hsl(252 56% 65% / 0.2),
-    0 0 40px hsl(252 56% 65% / 0.15),
-    0 0 60px hsl(252 56% 65% / 0.1);
+    0 0 20px hsl(43 80% 55% / 0.2),
+    0 0 40px hsl(43 80% 55% / 0.15),
+    0 0 60px hsl(43 80% 55% / 0.1);
 }
 
 /* Selection color */
 ::selection {
-  background-color: hsl(252 56% 57% / 0.2);
+  background-color: hsl(43 74% 49% / 0.2);
 }
 
 .dark ::selection {
-  background-color: hsl(252 56% 65% / 0.3);
+  background-color: hsl(43 80% 55% / 0.3);
 }
 
 /* Smooth theme transitions */
