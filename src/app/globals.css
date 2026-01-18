@@ -7,6 +7,11 @@
   --foreground: #171717;
 }
 
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
@@ -14,4 +19,9 @@ body {
 
 .gradient-text {
   @apply bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent;
+}
+
+/* Dark mode transitions */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
