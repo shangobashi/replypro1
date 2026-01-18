@@ -10,18 +10,33 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
-          950: '#172554',
+        // Apple-inspired neutral palette
+        surface: {
+          DEFAULT: '#FFFFFF',
+          secondary: '#F5F5F7',
+          tertiary: '#E8E8ED',
+          dark: '#000000',
+          'dark-secondary': '#1C1C1E',
+          'dark-tertiary': '#2C2C2E',
+        },
+        content: {
+          DEFAULT: '#1D1D1F',
+          secondary: '#6E6E73',
+          tertiary: '#86868B',
+          inverse: '#F5F5F7',
+          'inverse-secondary': '#A1A1A6',
+        },
+        border: {
+          DEFAULT: '#D2D2D7',
+          dark: '#38383A',
+        },
+        // Sophisticated accent - muted violet/indigo
+        accent: {
+          DEFAULT: '#5856D6',
+          hover: '#4B49B6',
+          light: '#7877E0',
+          subtle: '#F3F2FF',
+          'subtle-dark': '#2D2B5A',
         },
       },
     },

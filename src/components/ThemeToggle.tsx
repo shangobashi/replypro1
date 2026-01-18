@@ -1,7 +1,7 @@
 'use client'
 
 import { Moon, Sun } from 'lucide-react'
-import { createContext, useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 type Theme = 'light' | 'dark'
 
@@ -36,10 +36,10 @@ export function ThemeToggle() {
   if (!mounted) {
     return (
       <button
-        className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800"
+        className="p-2 rounded-full text-content-secondary"
         aria-label="Toggle theme"
       >
-        <Moon className="w-5 h-5 text-gray-600" />
+        <Moon className="w-5 h-5" />
       </button>
     )
   }
@@ -47,13 +47,13 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+      className="p-2 rounded-full text-content-secondary dark:text-content-inverse-secondary hover:text-content dark:hover:text-content-inverse hover:bg-surface-secondary dark:hover:bg-surface-dark-secondary transition-colors"
       aria-label="Toggle theme"
     >
       {theme === 'light' ? (
-        <Moon className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+        <Moon className="w-5 h-5" />
       ) : (
-        <Sun className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+        <Sun className="w-5 h-5" />
       )}
     </button>
   )

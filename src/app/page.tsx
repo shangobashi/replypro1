@@ -1,31 +1,31 @@
 import Link from 'next/link'
-import { CheckCircle, Star, Clock, Zap, MessageSquare, TrendingUp } from 'lucide-react'
+import { CheckCircle, Star, Clock, Zap, MessageSquare, TrendingUp, ArrowRight } from 'lucide-react'
 import { ThemeToggle } from '@/components/ThemeToggle'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div className="min-h-screen bg-surface dark:bg-surface-dark">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+      <nav className="fixed top-0 w-full bg-surface/80 dark:bg-surface-dark/80 backdrop-blur-xl z-50 border-b border-border/50 dark:border-border-dark/50">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex justify-between items-center h-14">
             <div className="flex items-center gap-2">
-              <MessageSquare className="h-8 w-8 text-blue-600 dark:text-blue-500" />
-              <span className="text-xl font-bold text-gray-900 dark:text-white">ReplyPro</span>
+              <MessageSquare className="h-6 w-6 text-accent" />
+              <span className="text-lg font-semibold text-content dark:text-content-inverse">ReplyPro</span>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-6">
               <ThemeToggle />
               <Link
                 href="/login"
-                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium transition-colors"
+                className="text-content-secondary dark:text-content-inverse-secondary hover:text-content dark:hover:text-content-inverse text-sm font-medium transition-colors"
               >
-                Log in
+                Sign in
               </Link>
               <Link
                 href="/signup"
-                className="bg-blue-600 dark:bg-blue-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors"
+                className="bg-content dark:bg-content-inverse text-white dark:text-content px-4 py-2 rounded-full text-sm font-medium hover:opacity-80 transition-opacity"
               >
-                Start Free
+                Get Started
               </Link>
             </div>
           </div>
@@ -33,74 +33,78 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            Respond to Reviews{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
-              10x Faster
-            </span>
+      <section className="pt-32 pb-24 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-subtle dark:bg-accent-subtle-dark text-accent text-sm font-medium mb-6">
+            <Zap className="w-4 h-4" />
+            AI-Powered Review Management
+          </div>
+          <h1 className="text-5xl sm:text-6xl font-semibold text-content dark:text-content-inverse mb-6 tracking-tight leading-[1.1]">
+            Respond to reviews
+            <br />
+            <span className="text-content-secondary dark:text-content-inverse-secondary">10x faster</span>
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-            AI-powered responses for Google, Yelp, and Amazon reviews.
-            Professional, personalized, and ready in seconds.
+          <p className="text-lg text-content-secondary dark:text-content-inverse-secondary mb-10 max-w-xl mx-auto leading-relaxed">
+            Generate professional, personalized responses for Google, Yelp, and Amazon reviews in seconds. Save hours every week.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/signup"
-              className="bg-blue-600 dark:bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors shadow-lg shadow-blue-600/25 dark:shadow-blue-500/25"
+              className="inline-flex items-center justify-center gap-2 bg-content dark:bg-content-inverse text-white dark:text-content px-6 py-3 rounded-full text-base font-medium hover:opacity-80 transition-opacity"
             >
-              Start Free Trial
+              Start free trial
+              <ArrowRight className="w-4 h-4" />
             </Link>
             <a
               href="#demo"
-              className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              className="inline-flex items-center justify-center gap-2 text-content dark:text-content-inverse px-6 py-3 rounded-full text-base font-medium border border-border dark:border-border-dark hover:bg-surface-secondary dark:hover:bg-surface-dark-secondary transition-colors"
             >
-              See How It Works
+              See how it works
             </a>
           </div>
-          <p className="text-sm text-gray-500 dark:text-gray-500 mt-4">
-            No credit card required. 5 free responses per month.
+          <p className="text-sm text-content-tertiary dark:text-content-inverse-secondary mt-6">
+            No credit card required · 5 free responses per month
           </p>
         </div>
       </section>
 
       {/* Demo Section */}
-      <section id="demo" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
-            See ReplyPro in Action
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
+      <section id="demo" className="py-24 px-6 bg-surface-secondary dark:bg-surface-dark-secondary">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-semibold text-content dark:text-content-inverse mb-4 tracking-tight">
+              See it in action
+            </h2>
+            <p className="text-content-secondary dark:text-content-inverse-secondary">
+              Transform negative reviews into opportunities
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
             {/* Before */}
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+            <div className="bg-surface dark:bg-surface-dark-tertiary rounded-2xl p-6 shadow-sm">
               <div className="flex items-center gap-2 mb-4">
                 <div className="flex">
                   {[1, 2].map((i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                    <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
                   ))}
                   {[3, 4, 5].map((i) => (
-                    <Star key={i} className="w-5 h-5 text-gray-300 dark:text-gray-600" />
+                    <Star key={i} className="w-4 h-4 text-border dark:text-border-dark" />
                   ))}
                 </div>
-                <span className="text-sm text-gray-500 dark:text-gray-400">Customer Review</span>
+                <span className="text-xs text-content-tertiary dark:text-content-inverse-secondary uppercase tracking-wide">Customer Review</span>
               </div>
-              <p className="text-gray-700 dark:text-gray-300 italic">
-                &quot;The food was cold when it arrived and the delivery took over an hour.
-                Very disappointed with the service. Won&apos;t be ordering again.&quot;
+              <p className="text-content-secondary dark:text-content-inverse-secondary leading-relaxed">
+                "The food was cold when it arrived and the delivery took over an hour. Very disappointed with the service. Won't be ordering again."
               </p>
             </div>
             {/* After */}
-            <div className="bg-blue-600 dark:bg-blue-600 rounded-xl p-6 text-white">
+            <div className="bg-surface dark:bg-surface-dark-tertiary rounded-2xl p-6 shadow-sm border-l-4 border-accent">
               <div className="flex items-center gap-2 mb-4">
-                <Zap className="w-5 h-5" />
-                <span className="text-sm opacity-90">AI-Generated Response</span>
+                <Zap className="w-4 h-4 text-accent" />
+                <span className="text-xs text-content-tertiary dark:text-content-inverse-secondary uppercase tracking-wide">AI Response</span>
               </div>
-              <p className="opacity-95">
-                &quot;We sincerely apologize for your disappointing experience. Cold food
-                and long wait times are not the standards we strive for. We&apos;d love
-                the opportunity to make this right - please reach out to us directly
-                so we can address this and ensure your next order exceeds expectations.&quot;
+              <p className="text-content dark:text-content-inverse leading-relaxed">
+                "We sincerely apologize for your disappointing experience. Cold food and long wait times are not the standards we strive for. We'd love the opportunity to make this right — please reach out to us directly so we can address this and ensure your next order exceeds expectations."
               </p>
             </div>
           </div>
@@ -108,28 +112,30 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">
-            Why Business Owners Love ReplyPro
-          </h2>
-          <p className="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
-            Save hours every week while maintaining a stellar online reputation
-          </p>
+      <section className="py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-semibold text-content dark:text-content-inverse mb-4 tracking-tight">
+              Why business owners love ReplyPro
+            </h2>
+            <p className="text-content-secondary dark:text-content-inverse-secondary">
+              Save hours every week while maintaining a stellar online reputation
+            </p>
+          </div>
           <div className="grid md:grid-cols-3 gap-8">
             <FeatureCard
-              icon={<Clock className="w-8 h-8 text-blue-600 dark:text-blue-500" />}
-              title="Save 10+ Hours/Week"
+              icon={<Clock className="w-6 h-6" />}
+              title="Save 10+ hours weekly"
               description="What used to take 5-10 minutes per review now takes seconds. Focus on running your business."
             />
             <FeatureCard
-              icon={<MessageSquare className="w-8 h-8 text-blue-600 dark:text-blue-500" />}
-              title="Multiple Tones"
-              description="Professional, friendly, apologetic, or enthusiastic - match your brand voice perfectly."
+              icon={<MessageSquare className="w-6 h-6" />}
+              title="Multiple tones"
+              description="Professional, friendly, apologetic, or enthusiastic — match your brand voice perfectly."
             />
             <FeatureCard
-              icon={<TrendingUp className="w-8 h-8 text-blue-600 dark:text-blue-500" />}
-              title="Better Ratings"
+              icon={<TrendingUp className="w-6 h-6" />}
+              title="Better ratings"
               description="Thoughtful responses encourage updated reviews and build customer loyalty."
             />
           </div>
@@ -137,59 +143,61 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-4">
-            Simple, Transparent Pricing
-          </h2>
-          <p className="text-center text-gray-600 dark:text-gray-400 mb-12">
-            Start free, upgrade when you are ready
-          </p>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <section id="pricing" className="py-24 px-6 bg-surface-secondary dark:bg-surface-dark-secondary">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-semibold text-content dark:text-content-inverse mb-4 tracking-tight">
+              Simple pricing
+            </h2>
+            <p className="text-content-secondary dark:text-content-inverse-secondary">
+              Start free, upgrade when you're ready
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {/* Free Plan */}
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Free</h3>
+            <div className="bg-surface dark:bg-surface-dark-tertiary rounded-2xl p-8">
+              <h3 className="text-lg font-semibold text-content dark:text-content-inverse">Free</h3>
               <div className="mt-4 flex items-baseline">
-                <span className="text-5xl font-bold text-gray-900 dark:text-white">$0</span>
-                <span className="text-gray-500 dark:text-gray-400 ml-2">/month</span>
+                <span className="text-4xl font-semibold text-content dark:text-content-inverse">$0</span>
+                <span className="text-content-secondary dark:text-content-inverse-secondary ml-2">/month</span>
               </div>
-              <p className="mt-4 text-gray-600 dark:text-gray-400">Perfect for trying out ReplyPro</p>
-              <ul className="mt-6 space-y-3">
+              <p className="mt-3 text-sm text-content-tertiary dark:text-content-inverse-secondary">Perfect for trying out ReplyPro</p>
+              <ul className="mt-8 space-y-4">
                 <PricingFeature>5 responses per month</PricingFeature>
-                <PricingFeature>All 5 tone options</PricingFeature>
+                <PricingFeature>All tone options</PricingFeature>
                 <PricingFeature>Instant generation</PricingFeature>
                 <PricingFeature>Copy to clipboard</PricingFeature>
               </ul>
               <Link
                 href="/signup"
-                className="mt-8 block w-full text-center bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 py-3 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                className="mt-8 block w-full text-center text-content dark:text-content-inverse py-3 rounded-full font-medium border border-border dark:border-border-dark hover:bg-surface-secondary dark:hover:bg-surface-dark-secondary transition-colors"
               >
-                Get Started Free
+                Get started
               </Link>
             </div>
             {/* Pro Plan */}
-            <div className="bg-blue-600 dark:bg-blue-600 rounded-2xl p-8 relative overflow-hidden">
-              <div className="absolute top-4 right-4 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full">
-                MOST POPULAR
+            <div className="bg-surface dark:bg-surface-dark-tertiary rounded-2xl p-8 ring-2 ring-accent relative">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-accent text-white text-xs font-medium rounded-full">
+                Most popular
               </div>
-              <h3 className="text-xl font-semibold text-white">Pro</h3>
+              <h3 className="text-lg font-semibold text-content dark:text-content-inverse">Pro</h3>
               <div className="mt-4 flex items-baseline">
-                <span className="text-5xl font-bold text-white">$19</span>
-                <span className="text-blue-100 ml-2">/month</span>
+                <span className="text-4xl font-semibold text-content dark:text-content-inverse">$19</span>
+                <span className="text-content-secondary dark:text-content-inverse-secondary ml-2">/month</span>
               </div>
-              <p className="mt-4 text-blue-100">Everything you need to manage reviews</p>
-              <ul className="mt-6 space-y-3">
-                <PricingFeature light>Unlimited responses</PricingFeature>
-                <PricingFeature light>All 5 tone options</PricingFeature>
-                <PricingFeature light>Response history</PricingFeature>
-                <PricingFeature light>Save favorite templates</PricingFeature>
-                <PricingFeature light>Priority support</PricingFeature>
+              <p className="mt-3 text-sm text-content-tertiary dark:text-content-inverse-secondary">Everything you need to manage reviews</p>
+              <ul className="mt-8 space-y-4">
+                <PricingFeature>Unlimited responses</PricingFeature>
+                <PricingFeature>All tone options</PricingFeature>
+                <PricingFeature>Response history</PricingFeature>
+                <PricingFeature>Save templates</PricingFeature>
+                <PricingFeature>Priority support</PricingFeature>
               </ul>
               <Link
                 href="/signup?plan=pro"
-                className="mt-8 block w-full text-center bg-white text-blue-600 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+                className="mt-8 block w-full text-center bg-accent text-white py-3 rounded-full font-medium hover:bg-accent-hover transition-colors"
               >
-                Start 7-Day Free Trial
+                Start 7-day trial
               </Link>
             </div>
           </div>
@@ -197,12 +205,14 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
-            Trusted by Business Owners
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
+      <section className="py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-semibold text-content dark:text-content-inverse mb-4 tracking-tight">
+              Trusted by business owners
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
             <TestimonialCard
               quote="ReplyPro saves me at least 5 hours a week. The responses are thoughtful and match my brand perfectly."
               author="Sarah M."
@@ -223,40 +233,41 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-600 dark:bg-blue-700 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-            Start Responding Smarter Today
+      <section className="py-24 px-6 border-t border-border dark:border-border-dark">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl font-semibold text-content dark:text-content-inverse mb-4 tracking-tight">
+            Ready to save hours every week?
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Join thousands of business owners saving time with AI-powered review responses.
+          <p className="text-content-secondary dark:text-content-inverse-secondary mb-8">
+            Join thousands of business owners using AI-powered review responses.
           </p>
           <Link
             href="/signup"
-            className="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors shadow-lg"
+            className="inline-flex items-center justify-center gap-2 bg-content dark:bg-content-inverse text-white dark:text-content px-8 py-4 rounded-full text-base font-medium hover:opacity-80 transition-opacity"
           >
-            Start Your Free Trial
+            Start your free trial
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 dark:bg-gray-950 text-gray-400 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center gap-2 mb-4 md:mb-0">
-              <MessageSquare className="h-6 w-6 text-blue-500" />
-              <span className="text-lg font-semibold text-white">ReplyPro</span>
+      <footer className="py-12 px-6 border-t border-border dark:border-border-dark">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex items-center gap-2">
+              <MessageSquare className="h-5 w-5 text-accent" />
+              <span className="font-semibold text-content dark:text-content-inverse">ReplyPro</span>
             </div>
-            <div className="flex gap-6 text-sm">
-              <a href="#" className="hover:text-white transition-colors">Privacy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms</a>
-              <a href="mailto:support@replypro.io" className="hover:text-white transition-colors">Contact</a>
+            <div className="flex gap-8 text-sm text-content-secondary dark:text-content-inverse-secondary">
+              <a href="#" className="hover:text-content dark:hover:text-content-inverse transition-colors">Privacy</a>
+              <a href="#" className="hover:text-content dark:hover:text-content-inverse transition-colors">Terms</a>
+              <a href="mailto:support@replypro.io" className="hover:text-content dark:hover:text-content-inverse transition-colors">Contact</a>
             </div>
           </div>
-          <div className="text-center mt-8 text-sm">
-            <p className="text-gray-500">ReplyPro by <span className="font-semibold text-blue-500">BLUELABS</span>.</p>
-            <p className="mt-2">&copy; {new Date().getFullYear()} All rights reserved.</p>
+          <div className="text-center mt-8 text-sm text-content-tertiary dark:text-content-inverse-secondary">
+            <p>ReplyPro by <span className="font-medium text-content-secondary dark:text-content-inverse-secondary">BLUELABS</span></p>
+            <p className="mt-1">© {new Date().getFullYear()} All rights reserved.</p>
           </div>
         </div>
       </footer>
@@ -266,18 +277,20 @@ export default function Home() {
 
 function FeatureCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
   return (
-    <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
-      <div className="mb-4">{icon}</div>
-      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{title}</h3>
-      <p className="text-gray-600 dark:text-gray-400">{description}</p>
+    <div className="text-center">
+      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-accent-subtle dark:bg-accent-subtle-dark text-accent mb-4">
+        {icon}
+      </div>
+      <h3 className="text-lg font-semibold text-content dark:text-content-inverse mb-2">{title}</h3>
+      <p className="text-content-secondary dark:text-content-inverse-secondary text-sm leading-relaxed">{description}</p>
     </div>
   )
 }
 
-function PricingFeature({ children, light }: { children: React.ReactNode; light?: boolean }) {
+function PricingFeature({ children }: { children: React.ReactNode }) {
   return (
-    <li className={`flex items-center gap-2 ${light ? 'text-white' : 'text-gray-600 dark:text-gray-300'}`}>
-      <CheckCircle className={`w-5 h-5 flex-shrink-0 ${light ? 'text-blue-200' : 'text-blue-600 dark:text-blue-500'}`} />
+    <li className="flex items-center gap-3 text-sm text-content-secondary dark:text-content-inverse-secondary">
+      <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" />
       {children}
     </li>
   )
@@ -285,16 +298,16 @@ function PricingFeature({ children, light }: { children: React.ReactNode; light?
 
 function TestimonialCard({ quote, author, role }: { quote: string; author: string; role: string }) {
   return (
-    <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
-      <div className="flex mb-4">
+    <div className="bg-surface-secondary dark:bg-surface-dark-secondary rounded-2xl p-6">
+      <div className="flex gap-1 mb-4">
         {[1, 2, 3, 4, 5].map((i) => (
-          <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+          <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
         ))}
       </div>
-      <p className="text-gray-600 dark:text-gray-300 mb-4 italic">&quot;{quote}&quot;</p>
+      <p className="text-content-secondary dark:text-content-inverse-secondary text-sm leading-relaxed mb-4">"{quote}"</p>
       <div>
-        <div className="font-semibold text-gray-900 dark:text-white">{author}</div>
-        <div className="text-sm text-gray-500 dark:text-gray-400">{role}</div>
+        <div className="font-medium text-content dark:text-content-inverse text-sm">{author}</div>
+        <div className="text-xs text-content-tertiary dark:text-content-inverse-secondary">{role}</div>
       </div>
     </div>
   )

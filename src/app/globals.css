@@ -2,17 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Base theme colors */
-:root {
-  --background: #f9fafb;
-  --foreground: #111827;
-}
-
-.dark {
-  --background: #111827;
-  --foreground: #f9fafb;
-}
-
 html {
   color-scheme: light;
 }
@@ -22,30 +11,27 @@ html.dark {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Utility class for gradient text */
-.gradient-text {
-  @apply bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent;
-}
-
-/* Smooth theme transitions - only apply to specific properties to avoid jank */
-html.dark,
-html:not(.dark) {
-  transition: background-color 0.3s ease;
-}
-
+/* Smooth transitions for theme switching */
 * {
-  transition-property: background-color, border-color, color, fill, stroke;
-  transition-timing-function: ease;
+  transition-property: background-color, border-color, color, fill, stroke, opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
-/* Disable transitions on page load to prevent flash */
+/* Disable transitions on page load */
 .no-transitions * {
   transition: none !important;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(88, 86, 214, 0.2);
+}
+
+.dark ::selection {
+  background-color: rgba(88, 86, 214, 0.4);
 }
