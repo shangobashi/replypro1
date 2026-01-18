@@ -2,22 +2,232 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  color-scheme: light;
+@layer base {
+  :root {
+    /* Warm off-white background with subtle warmth */
+    --background: 40 20% 98%;
+    --foreground: 240 10% 10%;
+
+    /* Cards slightly elevated */
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 10%;
+
+    /* Primary - rich indigo/violet */
+    --primary: 252 56% 57%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - soft warm gray */
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 6% 25%;
+
+    /* Muted - for subtle backgrounds */
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+
+    /* Accent - matches primary for consistency */
+    --accent: 252 56% 57%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 252 56% 57%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Deep charcoal - not pure black */
+    --background: 240 10% 6%;
+    --foreground: 0 0% 95%;
+
+    /* Elevated cards */
+    --card: 240 10% 10%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 240 10% 10%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Primary - slightly brighter in dark mode */
+    --primary: 252 56% 65%;
+    --primary-foreground: 240 10% 6%;
+
+    /* Secondary */
+    --secondary: 240 6% 16%;
+    --secondary-foreground: 0 0% 90%;
+
+    /* Muted */
+    --muted: 240 6% 16%;
+    --muted-foreground: 240 5% 65%;
+
+    /* Accent */
+    --accent: 252 56% 65%;
+    --accent-foreground: 240 10% 6%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 6% 20%;
+    --input: 240 6% 20%;
+    --ring: 252 56% 65%;
+  }
 }
 
-html.dark {
-  color-scheme: dark;
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
 }
 
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Gradient text utility */
+.gradient-text {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(
+    135deg,
+    hsl(252, 56%, 57%) 0%,
+    hsl(280, 60%, 55%) 25%,
+    hsl(320, 55%, 55%) 50%,
+    hsl(280, 60%, 55%) 75%,
+    hsl(252, 56%, 57%) 100%
+  );
+  background-size: 200% auto;
+  animation: gradient-flow 4s ease infinite;
 }
 
-/* Smooth transitions for theme switching */
+.dark .gradient-text {
+  background-image: linear-gradient(
+    135deg,
+    hsl(252, 70%, 72%) 0%,
+    hsl(280, 70%, 70%) 25%,
+    hsl(320, 65%, 70%) 50%,
+    hsl(280, 70%, 70%) 75%,
+    hsl(252, 70%, 72%) 100%
+  );
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+/* Subtle gradient overlay for sections */
+.gradient-subtle {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    hsl(252 56% 57% / 0.02) 50%,
+    transparent 100%
+  );
+}
+
+.dark .gradient-subtle {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    hsl(252 56% 65% / 0.03) 50%,
+    transparent 100%
+  );
+}
+
+/* Animated gradient border */
+.gradient-border {
+  position: relative;
+  background: hsl(var(--card));
+  border-radius: var(--radius);
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    hsl(252 56% 57% / 0.5),
+    hsl(280 60% 55% / 0.3),
+    hsl(320 55% 55% / 0.5),
+    hsl(252 56% 57% / 0.3)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  background-size: 300% 300%;
+  animation: gradient-rotate 8s linear infinite;
+}
+
+@keyframes gradient-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Glow effect for highlighted elements */
+.glow {
+  box-shadow:
+    0 0 20px hsl(252 56% 57% / 0.15),
+    0 0 40px hsl(252 56% 57% / 0.1),
+    0 0 60px hsl(252 56% 57% / 0.05);
+}
+
+.dark .glow {
+  box-shadow:
+    0 0 20px hsl(252 56% 65% / 0.2),
+    0 0 40px hsl(252 56% 65% / 0.15),
+    0 0 60px hsl(252 56% 65% / 0.1);
+}
+
+/* Selection color */
+::selection {
+  background-color: hsl(252 56% 57% / 0.2);
+}
+
+.dark ::selection {
+  background-color: hsl(252 56% 65% / 0.3);
+}
+
+/* Smooth theme transitions */
 * {
-  transition-property: background-color, border-color, color, fill, stroke, opacity;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -25,13 +235,4 @@ body {
 /* Disable transitions on page load */
 .no-transitions * {
   transition: none !important;
-}
-
-/* Selection color */
-::selection {
-  background-color: rgba(88, 86, 214, 0.2);
-}
-
-.dark ::selection {
-  background-color: rgba(88, 86, 214, 0.4);
 }

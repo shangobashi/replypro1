@@ -1,46 +1,112 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
+  darkMode: ['class'],
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        // Apple-inspired neutral palette
-        surface: {
-          DEFAULT: '#FFFFFF',
-          secondary: '#F5F5F7',
-          tertiary: '#E8E8ED',
-          dark: '#000000',
-          'dark-secondary': '#1C1C1E',
-          'dark-tertiary': '#2C2C2E',
+        // Professional slate-based palette (not pure black/white)
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
         },
-        content: {
-          DEFAULT: '#1D1D1F',
-          secondary: '#6E6E73',
-          tertiary: '#86868B',
-          inverse: '#F5F5F7',
-          'inverse-secondary': '#A1A1A6',
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
         },
-        border: {
-          DEFAULT: '#D2D2D7',
-          dark: '#38383A',
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
         },
-        // Sophisticated accent - muted violet/indigo
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
+        },
         accent: {
-          DEFAULT: '#5856D6',
-          hover: '#4B49B6',
-          light: '#7877E0',
-          subtle: '#F3F2FF',
-          'subtle-dark': '#2D2B5A',
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+      },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
+      },
+      animation: {
+        'gradient-x': 'gradient-x 15s ease infinite',
+        'gradient-y': 'gradient-y 15s ease infinite',
+        'gradient-xy': 'gradient-xy 15s ease infinite',
+        'shimmer': 'shimmer 2s linear infinite',
+        'float': 'float 6s ease-in-out infinite',
+      },
+      keyframes: {
+        'gradient-x': {
+          '0%, 100%': {
+            'background-size': '200% 200%',
+            'background-position': 'left center',
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'right center',
+          },
+        },
+        'gradient-y': {
+          '0%, 100%': {
+            'background-size': '200% 200%',
+            'background-position': 'center top',
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'center bottom',
+          },
+        },
+        'gradient-xy': {
+          '0%, 100%': {
+            'background-size': '400% 400%',
+            'background-position': 'left center',
+          },
+          '50%': {
+            'background-size': '400% 400%',
+            'background-position': 'right center',
+          },
+        },
+        'shimmer': {
+          '0%': {
+            'background-position': '-200% 0',
+          },
+          '100%': {
+            'background-position': '200% 0',
+          },
+        },
+        'float': {
+          '0%, 100%': {
+            transform: 'translateY(0)',
+          },
+          '50%': {
+            transform: 'translateY(-10px)',
+          },
         },
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-animate')],
 }
 export default config
